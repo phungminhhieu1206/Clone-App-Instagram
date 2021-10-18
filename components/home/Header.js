@@ -24,12 +24,12 @@ const Header = () => {
                         source={require('../../assets/header-add-icon.png')}
                     />
                 </TouchableOpacity>
-                <TouchableOpacity>
+                {/* <TouchableOpacity>
                     <Image
                         style={styles.icon}
                         source={require('../../assets/header-heart-icon.png')}
                     />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity>
                     <View style={styles.unreadBadge}>
                         <Text style={styles.unreadBadgeText}>11</Text>
