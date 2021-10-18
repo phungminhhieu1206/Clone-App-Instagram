@@ -1,7 +1,5 @@
 import React from 'react'
 import {
-    View,
-    Text,
     SafeAreaView,
     StyleSheet,
     ScrollView
@@ -12,17 +10,17 @@ import Post from '../components/home/Post'
 import Stories from '../components/home/Stories'
 import { POSTS } from '../data/posts.js'
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
     return (
         <SafeAreaView style={styles.container}>
-            <Header />
+            <Header navigation={navigation} />
             <Stories />
             <ScrollView>
                 {POSTS.map((post, index) => (
                     <Post post={post} key={index} />
                 ))}
             </ScrollView>
-            <BottomTabs icons={bottomTabIcons}/>
+            <BottomTabs icons={bottomTabIcons} />
         </SafeAreaView>
     )
 }

@@ -1,13 +1,11 @@
 import React from 'react';
+import SignedInStack from './navigation';
 import HomeScreen from './screens/HomeScreen';
 import NewPostScreen from './screens/NewPostScreen';
 
-const App = () => {
-
-  return (
-    // <HomeScreen />
-    <NewPostScreen />
-  );
-};
-
-export default App;
+export default function App() {
+  return <SignedInStack />
+  // <HomeScreen />
+  // <NewPostScreen />
+  // <SignedInStack />
+}
