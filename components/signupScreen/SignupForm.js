@@ -5,8 +5,11 @@ import {
     TextInput,
     StyleSheet,
     Pressable,
-    TouchableOpacity
+    TouchableOpacity,
+    Alert
 } from 'react-native'
+import auth from '@react-native-firebase/auth'
+import firestore from '@react-native-firebase/firestore'
 
 import { Formik } from 'formik'
 import * as Yup from 'yup'
@@ -20,12 +23,32 @@ const SignupForm = ({ navigation }) => {
         password: Yup.string().required().min(6, 'Your password has to have at least 8 characters'),
     })
 
+    // const getRandomProfilePicture = async () => {
+    //     const response = await fetch('https://randomuser.me/api')
+    //     const data = await response.json()
+    //     return data.results[0].picture.large
+    // }
+
+    const onSignup = async (email, password) => {
+        try {
+            const authUser = await auth().createUserWithEmailAndPassword(email, password)
+            console.log('Firebase user created successfully', email, password)
+            // firestore.collection('users').add({
+            //     owner_uid: authUser.user.uid,
+            //     username: username,
+            // })
+        } catch (error) {
+            Alert.alert('ERROR', error.message)
+        }
+    }
+
     return (
         <View style={styles.wrapper}>
             <Formik
                 initialValues={{ email: '', username: '', password: '' }}
                 onSubmit={values => {
-                    console.log(values)
+                    onSignup(values.email, values.password)
+                    // console.log(values)
                 }}
                 validationSchema={SignupFormSchema}
                 validateOnMount={true}
