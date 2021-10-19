@@ -2,7 +2,7 @@ import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 import LoginForm from '../components/loginScreen/LoginForm'
 
-const LoginScreen = () => {
+const LoginScreen = ({navigation}) => {
     return (
         <View style={styles.container}>
             <View style={styles.logoContainer}>
@@ -11,7 +11,7 @@ const LoginScreen = () => {
                     source={require('../assets/logo-instagram.png')}
                 />
             </View>
-            <LoginForm />
+            <LoginForm navigation={navigation}/>
         </View>
     )
 }
