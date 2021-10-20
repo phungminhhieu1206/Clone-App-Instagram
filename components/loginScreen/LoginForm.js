@@ -7,7 +7,7 @@ import {
     StyleSheet,
     Pressable,
     TouchableOpacity,
-    Alert
+    Alert,
 } from 'react-native'
 import auth from '@react-native-firebase/auth'
 
@@ -72,12 +72,13 @@ const LoginForm = ({ navigation }) => {
                                 autoCapitalize='none'
                                 keyboardType='email-address'
                                 textContentType='emailAddress'
-                                autoFocus={true}
+                                // autoFocus={true}
                                 onChangeText={handleChange('email')}
                                 onBlur={handleBlur('email')}
                                 value={values.email}
                             />
                         </View>
+
                         <View
                             style={[
                                 styles.inputFiled,
@@ -118,7 +119,6 @@ const LoginForm = ({ navigation }) => {
                         </View>
                     </Fragment>
                 )}
-
             </Formik>
         </View>
     )
