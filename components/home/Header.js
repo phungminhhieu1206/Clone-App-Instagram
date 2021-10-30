@@ -41,7 +41,7 @@ const Header = ({ navigation }) => {
                         source={require('../../assets/header-heart-icon.png')}
                     />
                 </TouchableOpacity> */}
-                <TouchableOpacity>
+                <TouchableOpacity onPress={() => navigation.push('ChatScreen')}>
                     <View style={styles.unreadBadge}>
                         <Text style={styles.unreadBadgeText}>11</Text>
                     </View>
